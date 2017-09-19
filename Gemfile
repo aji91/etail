@@ -13,6 +13,9 @@ gem 'sqlite3'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem "roo", "~> 2.7.0"
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: '776037c0fc799bb09da8c9ea47980bd3bf296874'
+gem 'axlsx_rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
