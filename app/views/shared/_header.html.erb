@@ -1,0 +1,24 @@
+<% if current_user.admin? %>
+<p class="navbar-text pull-right">
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <%= link_to "Create User", create_new_user_dashboards_path, :class => 'navbar-link'  %>
+  <%= link_to "Create Batch", new_batch_path, :class => 'navbar-link'  %>
+  <%= link_to "Upload Record", upload_file_batches_path, :class => 'navbar-link'  %>
+</p>
+<% elsif current_user.client? %>
+<p class="navbar-text pull-right">
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+</p>
+<% elsif current_user.employee? %>
+<p class="navbar-text pull-right">
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+</p>
+<% else %>
+<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>

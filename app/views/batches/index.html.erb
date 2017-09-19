@@ -1,0 +1,23 @@
+<% if @batches.present? %>
+  <table>
+  <thead>
+    <tr>
+      <th>S.no</th>
+      <th>Batch Number</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @batches.each_with_index do |batch, ind| %>
+    <tr>
+      <td><%= ind + 1 %></td>
+      <td><%= batch.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>
+<% else %>
+<p>No batches</p>
+<p>
+  <%= link_to "Create Batch", new_batch_path, :class => 'navbar-link'  %>
+</p>
+<% end %>

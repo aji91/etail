@@ -1,0 +1,11 @@
+<%= form_for(BatchFile.new, url: upload_file_batches_path, method: :post) do |f| %>
+<div>
+  <%= f.select :batch_id, options_for_select(Batch.all.collect {|ba| [ba.name, ba.id]}), {prompt: 'Choose Batch'} %>
+</div>
+<div>
+  <%= f.file_field :file_name %>
+</div>
+<div>
+  <%= f.submit 'Create' %>
+</div>
+<% end %>

@@ -1,0 +1,29 @@
+<%= form_tag("/dashboards/create_new_user", method: "post", "data-parsley-validate" => true) do %>
+<div>
+  <%= text_field_tag 'user[user_name]', '', placeholder: 'User name' %>
+</div>
+<div>
+<%= text_field_tag 'user[designation]', '', placeholder: 'Designation' %>
+</div>
+<div>
+<%= text_field_tag 'user[company_name]', '', placeholder: 'Company' %>
+</div>
+<div>
+<%= text_field_tag 'user[phone]', '', placeholder: 'Phone' %>
+</div>
+<div>
+<%= select_tag 'user[role_id]', options_for_select(Role.all.collect { |r| [r.name, r.id]}), {prompt: 'Select Role'} %>
+</div>
+<div>
+<%= email_field_tag 'user[email]', '', placeholder: 'Email' %>
+</div>
+<div>
+<%= password_field_tag 'user[password]', '', placeholder: 'Password' %>
+</div>
+<div>
+<%= password_field_tag 'user[password_confirmation]', '', placeholder: 'Confirm password' %>
+</div>
+<div>
+  <%= submit_tag 'Create' %>
+</div>
+<% end %>
