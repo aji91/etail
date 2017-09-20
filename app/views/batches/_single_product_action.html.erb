@@ -1,0 +1,9 @@
+<span><%= product.status.try(:capitalize) %></span>
+<% if product.approved? %>
+<%= link_to 'Reject', change_record_status_batches_path(status: 'rejected', product_id: product.id), method: :post, remote: true %>
+<% elsif product.rejected?  %>
+<%= link_to 'Approve', change_record_status_batches_path(status: 'approved', product_id: product.id), method: :post, remote: true %>
+<% else %>
+<%= link_to 'Reject', change_record_status_batches_path(status: 'rejected', product_id: product.id), method: :post, remote: true %> | 
+<%= link_to 'Approve', change_record_status_batches_path(status: 'approved', product_id: product.id), method: :post, remote: true %>
+<% end %>

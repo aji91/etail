@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   resources :batches do
     collection do
       match :upload_file, via: [:get, :post]
+      get :change_status
+      get :show_batch_records
+      get :filter_batch_records
+      get :export_csv
+      post :change_record_status
+      post :change_multiple_records
     end
   end
 end

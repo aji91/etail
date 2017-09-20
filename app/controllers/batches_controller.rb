@@ -24,6 +24,47 @@ class BatchesController < ApplicationController
     end
   end
 
+  def change_status
+    @batches = Batch.all
+  end
+
+  def show_batch_records
+    @batch = Batch.find_by_id(params[:batch_id])
+    @products = @batch.product_reports
+  end
+
+  def filter_batch_records
+    @batch = Batch.find_by_id(params[:batch_id])
+    if params[:status] == 'all'
+      @products = @batch.product_reports
+    else
+      @products = @batch.product_reports.where(status: params[:status])
+    end
+  end
+
+  def change_record_status
+    @product = ProductReport.find_by_id(params[:product_id])
+    @product.update_attributes!(status: params[:status])
+  end
+
+  def change_multiple_records
+    @batch = Batch.find_by_id(params[:batch_id])
+    @batch.product_reports.where(id: params[:product_ids]).update_all(status: params[:status])
+    @products = @batch.product_reports
+  end
+
+  def export_csv
+    @batch = Batch.find_by_id(params[:batch_id])
+    if params[:status] == 'all' || params[:status] == 'undefined'
+      @products = @batch.product_reports
+    else
+      @products = @batch.product_reports.where(status: params[:status])
+    end
+    respond_to do |format|
+      format.xlsx
+    end
+  end
+
   private
 
   def batch_params

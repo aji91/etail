@@ -1,0 +1,1 @@
+$('#single-product-action-<%= @product.id %>').html("<%= escape_javascript(render partial: 'single_product_action', locals: { product: @product }) %>");

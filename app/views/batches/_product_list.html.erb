@@ -1,0 +1,9 @@
+  <div class="col-md-3">
+    <input type="radio" value="all" name='status' class="prduct-list-status" data-batch-id="<%= @batch.id %>"> All <br/>
+    <input type="radio" value="approved" name='status' class="prduct-list-status" data-batch-id="<%= @batch.id %>"> Approved <br/>
+    <input type="radio" value="rejected" name='status' class="prduct-list-status" data-batch-id="<%= @batch.id %>"> Rejected <br/>
+    <input type="radio" value="pending" name='status' class="prduct-list-status" data-batch-id="<%= @batch.id %>"> Pending <br/>
+  </div>
+  <div class="col-md-9" id="filter-product-lists">
+    <%= render 'filter_products_list' %>
+  </div>

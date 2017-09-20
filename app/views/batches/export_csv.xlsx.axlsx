@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Output") do |sheet|
+  sheet.add_row ['S.No.', 'Model No.', 'Manufacturer', 'Category', 'Status']
+  @products.each_with_index do |product, index|
+    sheet.add_row [index +1, product.model_no, product.manufacturer, product.category, product.status.try(:capitalize)]
+  end
+end

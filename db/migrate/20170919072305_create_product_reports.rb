@@ -5,7 +5,7 @@ class CreateProductReports < ActiveRecord::Migration[5.1]
       t.string :model_no
       t.string :manufacturer
       t.string :category
-      t.string :status
+      t.string :status, default: 'pending'
       t.string :image
       t.string :meta_title
       t.string :meta_keywords

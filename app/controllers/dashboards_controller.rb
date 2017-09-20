@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
   def index
+    @batches = Batch.all
   end
 
   def create_new_user

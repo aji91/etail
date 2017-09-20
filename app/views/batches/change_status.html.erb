@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-md-12">
+    <%= select_tag "batch_id", options_for_select(Batch.all.collect {|ba| [ba.name, ba.id]}), {prompt: 'Choose Batch', id: 'change-batch-status' } %>
+  </div>
+  <div class="col-md-12" id="show-batch-records">
+  </div>
+</div>

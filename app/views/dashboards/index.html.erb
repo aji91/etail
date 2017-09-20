@@ -1,1 +1,2 @@
-<p>Hi ...!</P>
+<%= line_chart User.group_by_day(:created_at).count, min: 1, max: 2 %>
+<%= pie_chart ProductReport.group(:status).count, colors: ["pink", "#999"] %>
