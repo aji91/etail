@@ -15,4 +15,9 @@
 //= require chartkick
 //= require bootstrap.min
 //= require datatable.min
+//= require sb-admin-charts
+//= require sb-admin-charts.min
+//= require sb-admin-datatables.min
+//= require sb-admin
+//= require sb-admin.min
 //= require tails
